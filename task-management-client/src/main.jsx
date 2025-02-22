@@ -9,7 +9,9 @@ import AuthProvider from './Provider/AuthProvider.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
-      <RouterProvider router={Routes} />
+      <div className='font-[roboto]'>
+        <RouterProvider router={Routes} />
+      </div>
     </AuthProvider>
   </StrictMode>,
 )

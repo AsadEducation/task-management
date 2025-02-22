@@ -18,29 +18,15 @@ const RootLayout = () => {
     }, [isDark]);
 
     return (
-        <div className={`dark:bg-slate-600 dark:text-white`}>
+        <div className={`dark:bg-slate-600 dark:text-white space-y-16 lg:space-y-24
+        `}>
 
             <div><Navbar /></div>
-
-            <div className='pt-[14vh] pb-[5vh] mx-auto w-fit'>
-                <input type="checkbox"
-                    onChange={(e) => {
-                        const darkMode = e.target.checked;
-                        setIsDark(darkMode); //console.log('is dark mode', darkMode);
-                        localStorage.setItem('darkMode', darkMode);
-                    }}
-                    className="toggle"
-                    checked={isDark}
-                />
-            </div>
 
             <div className='lg:w-11/12 mx-auto mb-20 lg:mb-32'>
                 <Outlet />
             </div>
 
-            <div>
-                <Footer />
-            </div>
         </div>
     );
 };
