@@ -12,8 +12,7 @@ app.use(cors({
 
     origin: [
         'http://localhost:5173',
-        'https://food-sharing-32.web.app',
-        'https://food-sharing-website.vercel.app',
+        'https://task-management-pink-omega.vercel.app',
     ],
 
     credentials: true
@@ -142,13 +141,13 @@ async function run() {
 
             let searchQuery = {};
 
-            if(sorted=='true'){
+            if (sorted == 'true') {
 
-                sortQuery = {expired_datetime:-1}
+                sortQuery = { expired_datetime: -1 }
 
             }
 
-            if(search){
+            if (search) {
                 searchQuery = { food_name: { $regex: new RegExp(search, 'i') } };
             }
 
