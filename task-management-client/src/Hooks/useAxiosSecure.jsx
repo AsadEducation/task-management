@@ -7,7 +7,7 @@ const axiosInstance = axios.create(
         
         baseURL: window.location.hostname === 'localhost'
             ? 'http://localhost:5000'
-            : 'https://food-sharing-server-bay.vercel.app',
+            : 'https://task-management-server-ashen-eight.vercel.app',
         withCredentials: true,
     }
 )
