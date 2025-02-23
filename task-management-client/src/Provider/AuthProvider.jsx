@@ -47,26 +47,9 @@ const AuthProvider = ({ children }) => {
 
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
 
-
             setUser(currentUser);
-
-            //token checking part 
-
-            if (currentUser) {
-                const userPrime = { email: currentUser.email };
-                axiosInstance.post('/jwt', userPrime)
-                    .then(res => {
-                        // console.log('login',res.data)
-                    });
-            }
-            else {
-                axiosInstance.post(`/logout`, {})
-                    .then(res => {
-                        // console.log('logout', res.data)
-                    })
-            }
-
             setLoading(false);
+
         })
 
         return () => {

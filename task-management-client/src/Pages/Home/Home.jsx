@@ -3,21 +3,18 @@ import FeaturedFoods from './FeaturedFoods';
 import Banner from './Banner';
 import FoodStorageLocation from './FoodStorageLocation';
 import FAQ from './FAQ';
+import { useTask } from '../../Hooks/useTask';
+import { TaskCard } from '../../Shared Component/task-card/TaskCard';
+import AllTasks from '../../task-page/AllTasks';
 
 
 const Home = () => {
+
+    const allTask = useTask(); //console.log(allTask);
+
     return (
-        <div className='space-y-8 lg:space-y-16'>
-            
-            {/* <div className=''> <Banner /></div> */}
-
-            <div className='md:w-11/12 mx-auto'> <FeaturedFoods /></div>
-
-            {/* <div className='md:w-11/12 mx-auto'><FoodStorageLocation /></div>
-
-            <div className='md:w-11/12 mx-auto'> <FAQ /></div> */}
-
-
+        <div className='my-32 space-y-8 lg:space-y-16'>
+            <AllTasks allTask={allTask} />
         </div>
     );
 };
