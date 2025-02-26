@@ -39,7 +39,7 @@ async function run() {
 
         console.log("Pinged your deployment. You successfully connected to MongoDB!");
 
-        //created food collection and food database 
+        //created task collection and task database 
 
         const TaskManagement = client.db('TaskManagement');
         const taskCollection = TaskManagement.collection('Tasks');
@@ -58,12 +58,12 @@ async function run() {
 
         //task add api
 
-        app.post('/add-food', async (req, res) => {
+        app.post('/add-task', async (req, res) => {
             // console.log(req.body)
 
-            const addedFood = req.body;
+            const addedTask = req.body;
 
-            const result = await foodCollection.insertOne(addedFood);
+            const result = await taskCollection.insertOne(addedTask);
 
             res.send(result);
 
@@ -71,10 +71,10 @@ async function run() {
 
         //task update api
 
-        app.put(`/add-food/:id`, async (req, res) => {
+        app.put(`/add-task/:id`, async (req, res) => {
 
             const id = req.params.id;
-            const updatedFood = req.body;
+            const updatedTask = req.body;
 
             const filter = { _id: new ObjectId(id) };
 
@@ -82,10 +82,10 @@ async function run() {
 
             const updateDoc = {
 
-                $set: updatedFood
+                $set: updatedTask
             }
 
-            const result = await foodCollection.updateOne(filter, updateDoc, options);
+            const result = await taskCollection.updateOne(filter, updateDoc, options);
 
             res.send(result);
 
@@ -93,11 +93,11 @@ async function run() {
 
         //task delete api
 
-        app.delete('/available-foods/:id', async (req, res) => {
+        app.delete('/available-tasks/:id', async (req, res) => {
             const id = req.params.id;
 
             const query = { _id: new ObjectId(id) }
-            const result = await foodCollection.deleteOne(query);
+            const result = await taskCollection.deleteOne(query);
 
             res.send(result);
 
