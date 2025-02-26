@@ -7,7 +7,6 @@ import { useTask } from '../../Hooks/useTask';
 import { TaskCard } from '../../Shared Component/task-card/TaskCard';
 import AllTasks from '../../task-page/AllTasks';
 
-
 const Home = () => {
 
     const allTask = useTask(); //console.log(allTask);
