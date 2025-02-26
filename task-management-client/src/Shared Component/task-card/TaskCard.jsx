@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 export const TaskCard = ({ task }) => {
-    console.log(task);
+    // console.log(task);
     return (
         <div className="card bg-base-100  shadow-xl">
             <figure>
@@ -20,7 +20,7 @@ export const TaskCard = ({ task }) => {
 
                 </div>
             </div>
-            <Link className="btn btn-primary  mx-auto my-4">Update</Link>
+            <Link to={`/update-food`} className="btn btn-primary  mx-auto my-4">Update</Link>
         </div>
     );
 };

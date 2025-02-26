@@ -57,12 +57,12 @@ const AddFood = () => {
     return (
         <div className='w-[99%] lg:w-[50%] my-8 lg:my-12 mx-auto'>
 
-           <Title text={"Add Food"}/>
+            <Title text={"Add Task"} />
 
             <FoodForm
-              onSubmit={handleAddFoodSubmit}
-              defaultValues={{food_donator_email,food_donator_image}}
-              isEditMode={false}
+                onSubmit={handleAddFoodSubmit}
+                defaultValues={{ food_donator_email, food_donator_image }}
+                isEditMode={false}
             />
 
         </div>

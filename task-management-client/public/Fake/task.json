@@ -4,62 +4,71 @@
         "title": "Prepare weekly team report",
         "description": "Summarize the team's progress and key updates for the weekly meeting.",
         "timestamp": "22 Jan, 2022",
-        "category": "To-Do"
+        "category": "To-Do",
+        "order": 1
     },
     {
         "image": "https://images.pexels.com/photos/3243/pen-calendar-to-do-checklist.jpg?auto=compress&cs=tinysrgb&w=600",
         "title": "Finalize client presentation",
         "description": "Complete the slides and ensure all data is accurate for the client pitch.",
         "timestamp": "21 Jan, 2022",
-        "category": "In Progress"
+        "category": "In Progress",
+        "order": 1
     },
     {
         "image": "https://images.pexels.com/photos/3243/pen-calendar-to-do-checklist.jpg?auto=compress&cs=tinysrgb&w=600",
         "title": "Resolve payment gateway issue",
         "description": "Investigate and fix the bug preventing transactions from being processed.",
         "timestamp": "20 Jan, 2022",
-        "category": "Done"
+        "category": "Done",
+        "order": 1
     },
     {
         "image": "https://images.pexels.com/photos/3243/pen-calendar-to-do-checklist.jpg?auto=compress&cs=tinysrgb&w=600",
         "title": "Organize project kickoff meeting",
         "description": "Set up the initial project meeting with stakeholders and team members.",
         "timestamp": "19 Jan, 2022",
-        "category": "To-Do"
+        "category": "To-Do",
+        "order": 2
     },
     {
         "image": "https://images.pexels.com/photos/3243/pen-calendar-to-do-checklist.jpg?auto=compress&cs=tinysrgb&w=600",
         "title": "Review and test new feature",
         "description": "Conduct testing and provide feedback for the newly developed functionality.",
         "timestamp": "18 Jan, 2022",
-        "category": "In Progress"
+        "category": "In Progress",
+        "order": 2
     },
     {
         "image": "https://images.pexels.com/photos/3243/pen-calendar-to-do-checklist.jpg?auto=compress&cs=tinysrgb&w=600",
         "title": "Launch new company website",
         "description": "Deploy and verify the live version of the redesigned company website.",
         "timestamp": "17 Jan, 2022",
-        "category": "Done"
+        "category": "Done",
+        "order": 2
     },
     {
         "image": "https://images.pexels.com/photos/3243/pen-calendar-to-do-checklist.jpg?auto=compress&cs=tinysrgb&w=600",
         "title": "Update software documentation",
         "description": "Revise and improve the existing documentation to reflect recent software updates.",
         "timestamp": "16 Jan, 2022",
-        "category": "To-Do"
+        "category": "To-Do",
+        "order": 3
     },
     {
         "image": "https://images.pexels.com/photos/3243/pen-calendar-to-do-checklist.jpg?auto=compress&cs=tinysrgb&w=600",
         "title": "Conduct team training session",
         "description": "Host a training session to introduce new tools and workflows to the team.",
         "timestamp": "15 Jan, 2022",
-        "category": "In Progress"
+        "category": "In Progress",
+        "order": 3
     },
     {
         "image": "https://images.pexels.com/photos/3243/pen-calendar-to-do-checklist.jpg?auto=compress&cs=tinysrgb&w=600",
         "title": "Fix broken links on website",
         "description": "Identify and update all broken links across the company website.",
         "timestamp": "14 Jan, 2022",
-        "category": "Done"
+        "category": "Done",
+        "order": 3
     }
 ]

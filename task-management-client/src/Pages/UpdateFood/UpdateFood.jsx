@@ -3,6 +3,7 @@ import FoodForm from '../../Shared Component/FoodForm';
 import { useLocation, useNavigate } from 'react-router-dom';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
+import Title from '../../Shared Component/title/Title';
 
 const UpdateFood = () => {
 
@@ -48,7 +49,7 @@ const UpdateFood = () => {
 
     return (
         <div>
-            <h2 className="text-center text-4xl font-bold">Update Food </h2>
+            <Title text={"Update Task"} />
             <FoodForm
                 onSubmit={handleUpdateSubmit}
                 defaultValues={state}
