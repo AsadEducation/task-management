@@ -6,10 +6,10 @@ import useAxiosSecure from "./useAxiosSecure";
 export const useTask = () => {
 
     const [allTask, setAllTask] = useState();
-    const axios = useAxiosSecure();
+    const axiosInstance = useAxiosSecure();
 
     useEffect(() => {
-        axios.get('/tasks')
+        axiosInstance.get('/tasks')
             .then(result => {
                 setAllTask(result.data)
                 // console.log(allTask)
