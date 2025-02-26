@@ -49,7 +49,10 @@ async function run() {
 
         app.get('/tasks', async (req, res) => {
 
-            
+            const result = await taskCollection.find().toArray();
+            // console.log(result);
+            res.send(result);
+
         })
 
 
