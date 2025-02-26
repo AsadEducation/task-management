@@ -7,155 +7,86 @@ const FoodForm = ({ onSubmit, defaultValues, isEditMode }) => {
     return (
 
         <form onSubmit={onSubmit} className="card-body">
-            {/* Food Name */}
+            {/* Task Title */}
             <div className="form-control">
                 <label className="label">
-                    <span >Food Name</span>
+                    <span>Task Title</span>
                 </label>
                 <input
                     type="text"
-                    placeholder="Chicken Biriyani"
+                    placeholder="Enter task title"
                     className="input input-bordered"
-                    name="food_name"
-                    defaultValue={defaultValues?.food_name || ''}
+                    name="title"
+                    defaultValue={defaultValues?.title || ''}
                     required
                 />
             </div>
 
-            {/* Food Image */}
+            {/* Task Image */}
             <div className="form-control">
                 <label className="label">
-                    <span >Food Image</span>
+                    <span>Task Image</span>
                 </label>
                 <input
                     type="url"
                     placeholder="http://image.com/"
                     className="input input-bordered"
-                    name="food_image"
-                    defaultValue={defaultValues?.food_image || ''}
+                    name="image"
+                    defaultValue={defaultValues?.image || ''}
                     required
                 />
             </div>
 
-            {/* Food Quantity */}
+            {/* Task Description */}
             <div className="form-control">
                 <label className="label">
-                    <span >Food Quantity</span>
+                    <span>Task Description</span>
                 </label>
-                <input
-                    type="number"
-                    placeholder="1/2/3"
-                    className="input input-bordered"
-                    name="food_quantity"
-                    defaultValue={defaultValues?.food_quantity || ''}
+                <textarea
+                    placeholder="Describe the task"
+                    className="textarea textarea-bordered"
+                    name="description"
+                    defaultValue={defaultValues?.description || ''}
                     required
-                />
+                ></textarea>
             </div>
 
-            {/* Pickup Location */}
+            {/* Task Timestamp */}
             <div className="form-control">
                 <label className="label">
-                    <span >Pickup Location</span>
-                </label>
-                <input
-                    type="text"
-                    placeholder="A.K SQUARE, DHAKA"
-                    className="input input-bordered"
-                    name="pickup_location"
-                    defaultValue={defaultValues?.pickup_location || ''}
-                    required
-                />
-            </div>
-
-            {/* Expired Date */}
-            <div className="form-control">
-                <label className="label">
-                    <span >Expired Date</span>
+                    <span>Task Date</span>
                 </label>
                 <input
                     type="date"
                     className="input input-bordered"
-                    name="expired_datetime"
-                    defaultValue={defaultValues?.expired_datetime || ''}
+                    name="timestamp"
+                    defaultValue={defaultValues?.timestamp || ''}
                     required
                 />
             </div>
 
-            {/* Additional Notes and Food Status */}
-            <div className="lg:flex items-center justify-between">
-                <div className="form-control lg:w-[50%]">
-                    <label className="label">
-                        <span >Additional Notes</span>
-                    </label>
-                    <textarea
-                        placeholder="Describe food a little bit"
-                        className="textarea textarea-bordered"
-                        name="additional_notes"
-                        defaultValue={defaultValues?.additional_notes || ''}
-                    ></textarea>
-                </div>
-                <div className="form-control lg:w-[50%]">
-                    <label className="label">
-                        <span >Food Status</span>
-                    </label>
-                    <select
-                        className="select select-bordered"
-                        name="food_status"
-                        defaultValue={defaultValues?.food_status || 'available'}
-                    >
-                        <option value="available">available</option>
-                        <option value="not available">not available</option>
-                        <option value="requested">requested</option>
-                    </select>
-                </div>
-            </div>
-
-            {/* Donator Info */}
+            {/* Task Category */}
             <div className="form-control">
                 <label className="label">
-                    <span >Donator Name</span>
+                    <span>Task Category</span>
                 </label>
-                <input
-                    type="text"
-                    placeholder="Jhankar Mahbub"
-                    className="input input-bordered"
-                    name="food_donator_name"
-                    defaultValue={defaultValues?.food_donator_name || ''}
-                    required
-                />
-            </div>
-            <div className="form-control">
-                <label className="label">
-                    <span >Donator Image</span>
-                </label>
-                <input
-                    type="url"
-                    placeholder="http://image.com/"
-                    className="input input-bordered"
-                    readOnly
-                    name="food_donator_image"
-                    defaultValue={defaultValues?.food_donator_image || ''}
-                    required
-                />
-            </div>
-            <div className="form-control">
-                <label className="label">
-                    <span >Donator Email</span>
-                </label>
-                <input
-                    type="email"
-                    className="input input-bordered"
-                    readOnly
-                    name="food_donator_email"
-                    defaultValue={defaultValues?.food_donator_email || ''}
-                />
+                <select
+                    className="select select-bordered"
+                    name="category"
+                    defaultValue={defaultValues?.category || 'To-Do'}
+                >
+                    <option value="To-Do">To-Do</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Done">Done</option>
+                </select>
             </div>
 
             {/* Submit Button */}
             <div className="form-control mt-6">
-                <button className="btn bg-green-500">{isEditMode ? 'Update Food' : 'Add Food'}</button>
+                <button className="btn bg-green-500">{isEditMode ? 'Update Task' : 'Add Task'}</button>
             </div>
         </form>
+
     );
 };
 

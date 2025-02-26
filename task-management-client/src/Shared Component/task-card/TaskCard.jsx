@@ -20,7 +20,7 @@ export const TaskCard = ({ task }) => {
 
                 </div>
             </div>
-            <Link to={`/update-food`} className="btn btn-primary  mx-auto my-4">Update</Link>
+            <Link to={`/update-food`} state={task} className="btn btn-primary  mx-auto my-4">Update</Link>
         </div>
     );
 };

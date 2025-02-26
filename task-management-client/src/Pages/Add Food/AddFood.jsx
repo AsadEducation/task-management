@@ -12,14 +12,11 @@ const AddFood = () => {
 
     const axiosInstance = useAxiosSecure();
 
-    const { user } = useAuth();
 
     const navigate = useNavigate();
 
     // console.log(user);
 
-    const food_donator_email = user.email;
-    const food_donator_image = user.photoURL;
 
     const handleAddFoodSubmit = (e) => {
 
@@ -28,26 +25,25 @@ const AddFood = () => {
         const formData = new FormData(e.target);
         const temp = formData.entries();
 
-        const addedFood = Object.fromEntries(temp);
+        const addedTask = Object.fromEntries(temp);
 
-        addedFood.food_quantity = parseInt(addedFood.food_quantity)
 
-        // console.log(addedFood);
+        // console.log(addedTask);
 
-        //sending the object in the server to add to db
+        // sending the object in the server to add to db
 
-        axiosInstance.post('/add-food', addedFood)
+        axiosInstance.post('/add-task', addedTask)
             .then(res => {
                 if (res.data.insertedId) {
 
                     Swal.fire(
                         {
                             icon: 'success',
-                            title: 'Your Food is Added SuccessFully',
+                            title: 'Task is Added SuccessFully',
                         }
                     )
 
-                    navigate('/my-added-foods');
+                    navigate('/');
 
                 }
             })
@@ -61,7 +57,6 @@ const AddFood = () => {
 
             <FoodForm
                 onSubmit={handleAddFoodSubmit}
-                defaultValues={{ food_donator_email, food_donator_image }}
                 isEditMode={false}
             />
 

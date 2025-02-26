@@ -7,7 +7,6 @@ import Title from '../../Shared Component/title/Title';
 
 const UpdateFood = () => {
 
-
     const axiosInstance = useAxiosSecure();
 
     const { state } = useLocation();
@@ -19,28 +18,28 @@ const UpdateFood = () => {
     const handleUpdateSubmit = (e) => {
 
         e.preventDefault();
-        // console.log('handle update submit clicked ');
+        console.log('handle update submit clicked ');
 
         const formData = new FormData(e.target);
         const temp = formData.entries();
 
-        const updatedFood = Object.fromEntries(temp);
+        const updatedTask = Object.fromEntries(temp);
 
-        console.log('updated food ', updatedFood);
+        console.log('updated Task ', updatedTask);
 
-        // console.log('got the id', state._id);
+        console.log('got the id', state._id);
 
-        axiosInstance.put(`/add-food/${state._id}`, updatedFood)
+        axiosInstance.put(`/add-task/${state._id}`, updatedTask)
             .then(res => {
                 if (res.data.modifiedCount) {
                     Swal.fire(
                         {
                             icon: 'success',
-                            title: 'Updated Your Food Successfully'
+                            title: 'Updated Your Task Successfully'
                         }
                     )
 
-                    navigate('/my-added-foods');
+                    navigate('/');
                 }
             })
 
