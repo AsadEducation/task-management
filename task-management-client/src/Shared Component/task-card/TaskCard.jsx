@@ -8,7 +8,7 @@ export const TaskCard = ({ task, refetch }) => {
             <figure>
                 <img
                     src={task.image}
-                    className="object-cover" />
+                    className="object-cover w-full h-[140px] lg:h-[283px]" />
             </figure>
             <div className="card-body">
                 <h2 className="card-title">
