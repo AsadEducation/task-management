@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom";
 
 const axiosInstance = useAxiosSecure();
 
-export const handleTrashBox = (_id) => {
+export const handleTrashBox = (_id, refetch) => {
     Swal.fire({
         title: "Are you sure?",
         text: "You won't be able to revert this!",
@@ -28,14 +28,14 @@ export const handleTrashBox = (_id) => {
 
                         // console.log(res.data);
 
+                        //resetting the state using refetch
+                        refetch();
+
                         Swal.fire({
                             title: "Deleted!",
                             text: "Your file has been deleted.",
                             icon: "success"
                         });
-
-                        //resetting the state using refetch
-
 
                     }
                 })

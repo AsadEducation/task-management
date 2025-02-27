@@ -5,12 +5,14 @@ import { useAuth } from '../../Hooks/useAuth';
 import FoodForm from '../../Shared Component/FoodForm';
 import { useNavigate } from 'react-router-dom';
 import Title from '../../Shared Component/title/Title';
+import { useTask } from '../../Hooks/useTask';
 
 
 const AddFood = () => {
 
 
     const axiosInstance = useAxiosSecure();
+    const { refetch } = useTask();
 
 
     const navigate = useNavigate();
@@ -42,7 +44,7 @@ const AddFood = () => {
                             title: 'Task is Added SuccessFully',
                         }
                     )
-
+                    refetch();
                     navigate('/');
 
                 }

@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { handleTrashBox } from "../../Pages/My Added Foods/MyAddedFoods";
 
-export const TaskCard = ({ task }) => {
+export const TaskCard = ({ task, refetch }) => {
     // console.log(task);
     return (
-        <div className="card bg-base-100  shadow-xl">
+        <div className="max-w-xs md:max-w-sm card bg-base-100  shadow-xl">
             <figure>
                 <img
                     src={task.image}
@@ -24,7 +24,7 @@ export const TaskCard = ({ task }) => {
             <div className="flex items-center justify-start md:justify-around">
                 <Link to={`/update-food`} state={task} className="btn btn-primary my-4">Update</Link>
                 <button onClick={() => {
-                    handleTrashBox(task._id)
+                    handleTrashBox(task._id, refetch)
                 }} className="btn btn-error text-white">Delete</button>
             </div>
         </div>

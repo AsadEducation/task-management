@@ -1,21 +1,24 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import useAxiosSecure from "./useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 
 export const useTask = () => {
 
-    const [allTask, setAllTask] = useState();
     const axiosInstance = useAxiosSecure();
 
-    useEffect(() => {
-        axiosInstance.get('/tasks')
-            .then(result => {
-                setAllTask(result.data)
-                // console.log(allTask)
-            }
-            )
-    }, [])
 
-    return allTask;
+    const { data: allTask = [], refetch } = useQuery({
+
+        queryKey: ['tasks'],
+
+        queryFn: async () => {
+
+            const { data } = await axiosInstance.get('/tasks'); //console.log(data);
+            return data;
+        }
+    })
+
+    return { allTask, refetch };
 };
