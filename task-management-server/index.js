@@ -93,7 +93,7 @@ async function run() {
 
         //task delete api
 
-        app.delete('/available-tasks/:id', async (req, res) => {
+        app.delete('/tasks/:id', async (req, res) => {
             const id = req.params.id;
 
             const query = { _id: new ObjectId(id) }
