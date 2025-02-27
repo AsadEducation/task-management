@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { handleTrashBox } from "../../Pages/My Added Foods/MyAddedFoods";
 
 export const TaskCard = ({ task }) => {
     // console.log(task);
@@ -20,7 +21,12 @@ export const TaskCard = ({ task }) => {
 
                 </div>
             </div>
-            <Link to={`/update-food`} state={task} className="btn btn-primary  mx-auto my-4">Update</Link>
+            <div className="flex items-center justify-start md:justify-around">
+                <Link to={`/update-food`} state={task} className="btn btn-primary my-4">Update</Link>
+                <button onClick={() => {
+                    handleTrashBox(task._id)
+                }} className="btn btn-error text-white">Delete</button>
+            </div>
         </div>
     );
 };

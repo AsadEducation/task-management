@@ -6,13 +6,48 @@ import { CgPen, CgTrash } from "react-icons/cg";
 import Swal from "sweetalert2";
 import { NavLink } from "react-router-dom";
 
+const axiosInstance = useAxiosSecure();
 
+export const handleTrashBox = (_id) => {
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+
+            //hitting delete end point in server
+
+            axiosInstance.delete(`/tasks/${_id}`)
+                .then(res => {
+                    if (res.data.deletedCount) {
+
+                        // console.log(res.data);
+
+                        Swal.fire({
+                            title: "Deleted!",
+                            text: "Your file has been deleted.",
+                            icon: "success"
+                        });
+
+                        //resetting the state using refetch
+
+
+                    }
+                })
+        }
+    });
+}
 
 const MyAddedFoods = () => {
 
     const { user } = useAuth();
 
-    const axiosInstance = useAxiosSecure();
+
     const [myAddedFoods, setMyAddedFoods] = useState([]);
 
     useEffect(() => {
@@ -21,44 +56,6 @@ const MyAddedFoods = () => {
             .then(res => setMyAddedFoods(res.data))
 
     }, [])
-
-
-    const handleTrashBox = (_id) => {
-        Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
-        }).then((result) => {
-            if (result.isConfirmed) {
-
-                //hitting delete end point in server
-
-                axiosInstance.delete(`/my-added-food/${_id}`)
-                    .then(res => {
-                        if (res.data.deletedCount) {
-
-                            // console.log(res.data);
-
-                            Swal.fire({
-                                title: "Deleted!",
-                                text: "Your file has been deleted.",
-                                icon: "success"
-                            });
-
-                            //resetting the state 
-
-                            const newAddedList = myAddedFoods.filter((myAddedFood) => myAddedFood._id !== _id);
-
-                            setMyAddedFoods(newAddedList);
-                        }
-                    })
-            }
-        });
-    }
 
 
 

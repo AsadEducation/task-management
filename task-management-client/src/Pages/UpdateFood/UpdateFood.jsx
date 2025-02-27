@@ -38,12 +38,9 @@ const UpdateFood = () => {
                             title: 'Updated Your Task Successfully'
                         }
                     )
-
                     navigate('/');
                 }
             })
-
-
     }
 
     return (
