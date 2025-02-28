@@ -5,7 +5,7 @@ import Draggable from "../Shared Component/Draggalbe/Draggable";
 import Droppable from "../Shared Component/Droppalbe/Droppable";
 
 import { useEffect, useState } from "react";
-import { arrayMove, rectSortingStrategy, SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable";
+import { arrayMove, SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable";
 
 
 const AllTasks = () => {
@@ -24,37 +24,53 @@ const AllTasks = () => {
     const done = allTask.filter((task) => task.category == "Done")
     const inprogress = allTask.filter((task) => task.category == "In Progress")
 
-    const allCategories = [todo, done, inprogress]
+    const allCategories = [todo, inprogress, done]
 
 
     const handleDragEnd = (event) => {
 
-        const { active, over } = event;
+        const { active, over } = event; console.log('active', active); console.log('over',over);
 
-        if (active.id !== over.id) {
+        if (!over) return;
 
+        const activeTask = allTask.find((task) => task._id === active.id);
+        const overTask = allTask.find((task) => task._id === over.id);
+
+        if (!activeTask || !overTask) return;
+
+
+        const activeCategory = activeTask.category;
+        const overCategory = overTask.category;
+
+        if (activeCategory === overCategory) {
+            // Reorder within the same category
             const oldIndex = allTask.findIndex((task) => task._id === active.id);
             const newIndex = allTask.findIndex((task) => task._id === over.id);
-
-            const newTasks = arrayMove(allTask, oldIndex, newIndex);
-            setAllTask(newTasks);
+            setAllTask(arrayMove(allTask, oldIndex, newIndex));
+        } else {
+            // Move to a new category
+            setAllTask((prevTasks) =>
+                prevTasks.map((task) =>
+                    task._id === active.id ? { ...task, category: overCategory } : task
+                )
+            );
         }
 
     }
 
     return (
         <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
-            <div className="grid grid-cols-2 md:grid-cols-3">
-                {/* looping all category tasks  */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+                {/* looping through all coloums  */}
 
                 {
                     allCategories.map((category, index) => {
 
-                        return <Droppable id="task-container">
+                        return <Droppable key={index} id={index} >
 
                             {/* todo col  */}
                             <SortableContext items={category} strategy={verticalListSortingStrategy}>
-                                <div className="grid grid-cols-1 gap-4 mx-auto">
+                                <div className="grid grid-cols-1 gap-4 bg-slate-500 p-8 rounded-xl">
                                     {
                                         category.map((task, index) => {
                                             return <Draggable key={task._id} id={task._id}>

@@ -13,15 +13,13 @@ export const TaskCard = ({ task, refetch }) => {
         transform: CSS.Transform.toString(transform),
     };
 
-
-
     // console.log(task);
     return (
         <div ref={setNodeRef}
             style={style}
             {...attributes}
             {...listeners}
-            className="w-[400px]  py-4 card bg-base-100  shadow-xl">
+            className="w-[400px]  py-4 card bg-base-100  shadow-2xl mx-auto">
 
             {/* image is flexed with title and description  */}
 
