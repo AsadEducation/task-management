@@ -9,7 +9,7 @@ export const useTask = () => {
     const axiosInstance = useAxiosSecure();
 
 
-    const { data: allTask = [], refetch } = useQuery({
+    const { data: allTask = [], refetch, isLoading } = useQuery({
 
         queryKey: ['tasks'],
 
@@ -20,5 +20,5 @@ export const useTask = () => {
         }
     })
 
-    return { allTask, refetch };
+    return { allTask, refetch, isLoading };
 };
